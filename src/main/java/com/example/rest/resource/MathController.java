@@ -1,5 +1,6 @@
 package com.example.rest.resource;
 
+import com.example.rest.exception.UnsupportedMathOperationException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,7 +12,7 @@ public class MathController {
 
       if (!isNumeric(numberOne) || !isNumeric(numeberTwo)) {
 
-         throw new Exception();
+         throw new UnsupportedMathOperationException("Please set a number value");
       }
 
       Double sum = convertToDouble(numberOne) + convertToDouble(numeberTwo);
